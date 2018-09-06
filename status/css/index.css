@@ -1,9 +1,27 @@
-p{
-    font-size: 20px;
-
+button{
+    width:100%;   
+    padding: 5px;
+    font-size: 100%;
 }
 
-th{
+p,label,{
     size: 30px;
 }
+input{
+    font-size: 24px;
+}
 
+div#all{
+    background-color: gray;
+    margin-left: auto;
+
+}
+
+div#message{
+    display: flex;
+}
+div#message p{
+    margin-left:auto;
+    margin-right: auto;
+
+}
