@@ -78,6 +78,7 @@ WSGI_APPLICATION = 'Attendance_Check.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
+#データベースは 'MySQL' で設定した際の設定例
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
