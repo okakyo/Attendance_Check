@@ -39,6 +39,7 @@ class index(FormView):
                 user = User.objects.get(username=user)
                 model=Attendance_Model(name=user,arrival=True)
                 model.save()
+
                 self.param['message']='{}の出勤を確認しました。'.format(user)
             else:
                 user = User.objects.get(username=user)
