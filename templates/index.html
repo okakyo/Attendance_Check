@@ -1,29 +1,37 @@
 {% extends 'base.html' %}
 {% block content %}
+<div id="background">
 <h1>出席管理表</h1>
 
-<div id=message>
-    <p>{{message}}</p>
+    <div id=message>
+        <p>{{message}}</p>
+    </div>
+    <div class="Main_Foems">
+        <div>
+            <form action="" method="post">
+                <table class="Forms">
+                    {% csrf_token %}
+                    {% for  input in form %}
+                    <tr><th>{{input.label_tag}}</th><td>{{input}}</td></tr>
+                    {% endfor %}
+                    <tr><td></td><td><button>決定</button></td></tr>
+                </table>
+            </form>
+        </div>
+        <div class="Forms">
+            <table>
+                <thead><th>現在のシフト状況</th></thead>
+                {% for data in model %}
+                <tbody>
+                    <tr>
+                        {% if data.arrival %}
+                        <th>{{data.name}}</th>
+                        {% endif %}
+                    </tr>
+                </tbody>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
 </div>
-<form action="" method="post">
-    <table>
-        {% csrf_token %}
-        {% for  input in form %}
-        <tr><th>{{input.label_tag}}</th><td>{{input}}</td></tr>
-        {% endfor %}
-        <tr><td></td><td><button>決定</button></td></tr>
-    </table>
-</form>
-<table>
-    <thead><th>現在のシフト状況</th></thead>
-    {% for data in model %}
-    <tbody>
-        <tr>
-            {% if data.arrival %}
-            <th>{{data.name}}</th>
-            {% endif %}
-        </tr>
-    </tbody>
-    {% endfor %}
-</table>
 {% endblock %}

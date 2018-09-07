@@ -1,0 +1,58 @@
+body{
+    background-color: #80808038;
+    margin-top: 0px;
+}
+
+div#background{
+    background-color: white;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+button{
+    width:100%;   
+    padding: 5px;
+    font-size: 100%;
+}
+
+p,label,{
+    size: 30px;
+}
+
+
+div#all{
+    background-color: gray;
+    margin-left: auto;
+
+}
+
+div#message{
+    display: flex;
+}
+div#message p{
+    margin-left:auto;
+    margin-right: auto;
+
+}
+
+h1{
+    color: white;
+    margin-top: 0px;
+    background-color: lightgreen;
+    font-size: 54px;
+    text-align: center;
+}
+
+table.Forms{
+    border-style: groove;
+    margin: 1%;
+    padding: 1%;
+}
+
+table th,td {
+    font-size: 45px;
+}
+
+table td input {
+    font-size: 80%;
+}
