@@ -7,6 +7,7 @@ from django.contrib.auth.models import User
 # Create your views here.
 import datetime
 import time
+from .arrangement import write_time
 
 class index(FormView):
     template_name = 'index.html'
@@ -38,12 +39,15 @@ class index(FormView):
             if not self.param['model'].values('arrival'):
                 user = User.objects.get(username=user)
                 model=Attendance_Model(name=user,arrival=True)
+                write_time(datetime.date.today(),user,datetime.datetime.now().strftime('%H:%M:%S'),'出勤')
+
                 model.save()
 
                 self.param['message']='{}の出勤を確認しました。'.format(user)
             else:
                 user = User.objects.get(username=user)
                 model = Attendance_Model(name=user, arrival=False)
+                write_time(datetime.date.today(), user, datetime.datetime.now().strftime('%H:%M:%S'), '退勤')
                 model.save()
                 self.param['message'] = '{}の退勤を確認しました。お疲れさまでした'.format(user)
 
