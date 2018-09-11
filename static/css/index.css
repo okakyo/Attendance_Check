@@ -27,7 +27,10 @@ div#all{
 }
 
 div#message{
-    display: flex;
+    text-align: center;
+    font-size: 40px;
+    font-family: sans-serif;
+
 }
 div#message p{
     margin-left:auto;
@@ -50,7 +53,9 @@ table.Forms{
 }
 
 table th,td {
+    border-style: groove;
     font-size: 45px;
+    margin: 1%;
 }
 
 table td input {
