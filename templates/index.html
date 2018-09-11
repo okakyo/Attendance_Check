@@ -24,8 +24,11 @@
                 {% for data in model %}
                 <tbody>
                     <tr>
-                        {% if data.arrival %}
                         <th>{{data.name}}</th>
+                        {% if data.arrival %}
+                        <td>出勤</tr>
+                        {% else %}
+                        <td>退勤</td>
                         {% endif %}
                     </tr>
                 </tbody>

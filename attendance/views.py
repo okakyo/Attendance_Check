@@ -21,7 +21,7 @@ class index(FormView):
 
             'message':'フォームに名前、パスワードを入力してください。',
             'form':Attendance_Form,
-            'model':Attendance_Model.objects.all()
+            'model':Attendance_Model.objects.filter(date=datetime.datetime.today().strftime('%Y-%m-%d'))
         }
         self.check=[]
 
