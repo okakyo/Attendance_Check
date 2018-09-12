@@ -21,9 +21,8 @@ class index(FormView):
 
             'message':'フォームに名前、パスワードを入力してください。',
             'form':Attendance_Form,
-            'model':Attendance_Model.objects.filter(date=datetime.datetime.today().strftime('%Y-%m-%d'))
+            'model':Attendance_Model.objects.filter(date=datetime.date.today().strftime('%Y-%m-%d'))
         }
-        self.check=[]
 
     def get(self, request, *args, **kwargs):
         return render(request,'index.html',self.param)
@@ -40,7 +39,6 @@ class index(FormView):
                 user = User.objects.get(username=user)
                 model=Attendance_Model(name=user,arrival=True)
                 write_time(datetime.date.today(),user,datetime.datetime.now().strftime('%H:%M:%S'),'出勤')
-
                 model.save()
 
                 self.param['message']='{}の出勤を確認しました。'.format(user)

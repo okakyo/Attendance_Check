@@ -6,35 +6,35 @@
     <div id=message>
         <p>{{message}}</p>
     </div>
-    <div class="Main_Foems">
-        <div>
-            <form action="" method="post">
-                <table class="Forms">
+    <div class="mainbox">
+        
+            <table class="Forms">
+                    <form action="" method="post">
                     {% csrf_token %}
                     {% for  input in form %}
                     <tr><th>{{input.label_tag}}</th><td>{{input}}</td></tr>
                     {% endfor %}
                     <tr><td></td><td><button>決定</button></td></tr>
-                </table>
-            </form>
-        </div>
-        <div class="Forms">
-            <table>
-                <thead><th>現在のシフト状況</th></thead>
+                </form>
+            </table>       
+            
+            <table class="Forms">
+                <thead><th>現在のシフト</th><th>出勤状況</th></thead>
                 {% for data in model %}
                 <tbody>
                     <tr>
                         <th>{{data.name}}</th>
                         {% if data.arrival %}
-                        <td>出勤</tr>
+                        <td>出勤</td>
                         {% else %}
-                        <td>退勤</td>
+                        <td>帰宅</td>
                         {% endif %}
                     </tr>
+                    {% endfor %}
                 </tbody>
-                {% endfor %}
+                
             </table>
-        </div>
+    
     </div>
 </div>
 {% endblock %}

@@ -30,6 +30,9 @@ div#message{
     text-align: center;
     font-size: 40px;
     font-family: sans-serif;
+    margin: 5%;
+    border-style: groove;
+    border-radius: 20px;
 
 }
 div#message p{
@@ -48,16 +51,24 @@ h1{
 
 table.Forms{
     border-style: groove;
-    margin: 1%;
+    margin: 0 3%;
+    margin-bottom: 10%;
     padding: 1%;
+    width: 50%;
 }
 
 table th,td {
     border-style: groove;
     font-size: 45px;
-    margin: 1%;
+    padding: 0;
 }
 
 table td input {
     font-size: 80%;
+    width: 90%;
+    margin: 5%;
+}
+
+.mainbox{
+    display: flex;
 }
