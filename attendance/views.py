@@ -36,13 +36,16 @@ class index(FormView):
             self.param['message']='ユーザー名、またはパスワードが違います。ご確認ください。'
         else:
             if not self.param['model'].values('arrival'):
+                
                 user = User.objects.get(username=user)
                 model=Attendance_Model(name=user,arrival=True)
+
                 write_time(datetime.date.today(),user,datetime.datetime.now().strftime('%H:%M:%S'),'出勤')
                 model.save()
 
                 self.param['message']='{}の出勤を確認しました。'.format(user)
             else:
+                
                 user = User.objects.get(username=user)
                 model = Attendance_Model(name=user, arrival=False)
                 write_time(datetime.date.today(), user, datetime.datetime.now().strftime('%H:%M:%S'), '退勤')
