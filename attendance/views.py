@@ -46,7 +46,7 @@ class index(FormView):
                 model = Attendance_Model(name=user, arrival=True)
                 write_time(datetime.date.today(), user, datetime.datetime.now().strftime('%H:%M:%S'), '出勤')
                 model.save()
-                answer_check(name=user,check='出勤')
+                
                 self.param['message'] = '{}の出勤を確認しました。'.format(user)
             
             else:
@@ -54,7 +54,7 @@ class index(FormView):
                 model = Attendance_Model(name=user, arrival=False)
                 write_time(datetime.date.today(), user, datetime.datetime.now().strftime('%H:%M:%S'), '退勤')
                 model.save()
-                answer_check(name=user,check='退勤')
+                
                 self.param['message'] = '{}の退勤を確認しました。お疲れさまでした'.format(user)
 
         return render(request, 'index.html', self.param)
