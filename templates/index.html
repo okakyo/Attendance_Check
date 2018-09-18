@@ -16,25 +16,6 @@
                     {% endfor %}
                     <tr><td></td><td><button>決定</button></td></tr>
                 </form>
-            </table>       
-            
-            <table class="Forms">
-                <thead><th>現在のシフト</th><th>出勤状況</th></thead>
-                {# この以下の表示を工夫して、jQuery で Ajax させる。 #}
-                {% for data in model %}
-                <tbody>
-                    <tr>
-                        <th>{{data.name}}</th>
-                        {% if data.arrival %}
-                        <td>出勤</td>
-                        {% else %}
-                        <td>帰宅</td>
-                        {% endif %}
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-    
     </div>
 </div>
 {% endblock %}
