@@ -12,18 +12,6 @@ from linebot import LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError
 from linebot.models import  MessageEvent, TextMessage, TextSendMessage,FollowEvent
 
-#環境変数取得
-YOUR_CHANNEL_ACCESS_TOKEN = os.environ["YOUR_CHANNEL_ACCESS_TOKEN"]
-YOUR_CHANNEL_SECRET = os.environ["YOUR_CHANNEL_SECRET"]
-
-line_bot_api = LineBotApi(YOUR_CHANNEL_ACCESS_TOKEN)
-handler = WebhookHandler(YOUR_CHANNEL_SECRET)
-
-
-@handler.add(MessageEvent)
-def answer_check(event,name,check):
-    line_bot_api.reply_message(event.reply_token,TextSendMessage(text='{}さんの{}を確認しました。'.format(name,check)))
-
 
 class index(FormView):
     template_name = 'index.html'
@@ -58,7 +46,7 @@ class index(FormView):
                 model = Attendance_Model(name=user, arrival=True)
                 write_time(datetime.date.today(), user, datetime.datetime.now().strftime('%H:%M:%S'), '出勤')
                 model.save()
-                answer_check(event,name=user,check='出勤')
+                answer_check(name=user,check='出勤')
                 self.param['message'] = '{}の出勤を確認しました。'.format(user)
             
             else:
@@ -66,7 +54,7 @@ class index(FormView):
                 model = Attendance_Model(name=user, arrival=False)
                 write_time(datetime.date.today(), user, datetime.datetime.now().strftime('%H:%M:%S'), '退勤')
                 model.save()
-                answer_check(event,name=user,check='退勤')
+                answer_check(name=user,check='退勤')
                 self.param['message'] = '{}の退勤を確認しました。お疲れさまでした'.format(user)
 
         return render(request, 'index.html', self.param)
