@@ -5,9 +5,15 @@ import datetime
 
 class Attendance_Model(models.Model):
     name=models.ForeignKey(User,on_delete=models.CASCADE)
-    arrival=models.BooleanField(default=False)
+    arrival=models.IntegerField(default=1)
     date=models.DateField(default=datetime.datetime.today().strftime('%Y-%m-%d'))
     check_time=models.TimeField(default=datetime.datetime.now().strftime('%H:%M:%S'))
 
     def __str__(self):
         return str(self.name)
+
+class Password_model(models.Model):
+    name=models.ForeignKey(User,on_delete=models.CASCADE)
+    password=models.CharField(max_length=50)
+
+

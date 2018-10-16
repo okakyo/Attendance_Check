@@ -9,13 +9,27 @@
     <div class="mainbox">
         
             <table class="Forms">
-                    <form action="" method="post">
+                <form action="" method="post">
                     {% csrf_token %}
                     {% for  input in form %}
                     <tr><th>{{input.label_tag}}</th><td>{{input}}</td></tr>
                     {% endfor %}
                     <tr><td></td><td><button>決定</button></td></tr>
                 </form>
+            </table>
+        <table>
+            <tr><th>今日のシフト</th><th>出勤状況</th></tr>
+            {% for data in model %}
+                <tr>
+                    <th>{{data.name}}</th>
+                    {% if data.arrival|divisibleby:"2" %}
+                    <th>不在</th>
+                    {% else %}
+                    <th>出勤</th>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+        </table>
     </div>
 </div>
 {% endblock %}
