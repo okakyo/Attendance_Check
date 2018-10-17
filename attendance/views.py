@@ -6,7 +6,6 @@ from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
 # Create your views here.
 import datetime
-import time, os
 from .arrangement import write_time
 
 class index(View):
@@ -35,7 +34,7 @@ class index(View):
         else:
             user = User.objects.get(username=user)
             model=Attendance_Model.objects.filter(name=user,date=datetime.date.today().strftime('%Y-%m-%d'))
-            self.param['message'] = '{}の出勤を確認しました。'.format(user)
+
             if not model.exists():
                 model=Attendance_Model(name=user)
                 write_time(datetime.date.today(), user, datetime.datetime.now().strftime('%H:%M:%S'), '出勤')

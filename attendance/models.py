@@ -5,7 +5,7 @@ import datetime
 
 class Attendance_Model(models.Model):
     name=models.ForeignKey(User,on_delete=models.CASCADE)
-    arrival=models.IntegerField(default=1)
+    arrival=models.IntegerField(default=0)
     date=models.DateField(default=datetime.datetime.today().strftime('%Y-%m-%d'))
     check_time=models.TimeField(default=datetime.datetime.now().strftime('%H:%M:%S'))
 
