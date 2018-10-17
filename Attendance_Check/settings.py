@@ -82,9 +82,9 @@ WSGI_APPLICATION = 'Attendance_Check.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'sample',
-        'USER': 'root',
-        'PASSWORD': 'password',
+        'NAME': '*****',
+        'USER': '****',
+        'PASSWORD': '********',
         'HOST': 'localhost',
         'PORT': '',
     }
