@@ -11,7 +11,7 @@ def spread_sheet(date,name,time,check):
 
     gc = gspread.authorize(credentials)
 
-    SPREADSHEET_KEY = '1lqF7o26iuWTvOvOM-v3x5zpa7P3bJrsH2wZIC-fBN9A'
+    SPREADSHEET_KEY = '*'
 
     wks = gc.open_by_key(SPREADSHEET_KEY).sheet1
 
