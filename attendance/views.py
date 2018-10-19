@@ -6,7 +6,15 @@ from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
 # Create your views here.
 import datetime
-from .arrangement import write_time
+from .arrangement import write_time,spread_sheet
+
+def Write(style='CSV',*args,**kwargs):
+    if style=='CSV':
+        write_time(*args,**kwargs)
+    elif style=='google':
+        spread_sheet(*args,**kwargs)
+    else:
+        raise ValueError
 
 class index(View):
 
